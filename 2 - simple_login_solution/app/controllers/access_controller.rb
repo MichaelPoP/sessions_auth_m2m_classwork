@@ -23,7 +23,10 @@ class AccessController < ApplicationController
   def attempt_login
 
     if params[:username].present? && params[:password].present?
-      User.confirm params[:username]
+      found_user = User.find_by_username params[:username]
+      if found_user
+        authorized_user = found_user.confirm params[:password]
+      end
     end
 
     if !found_user

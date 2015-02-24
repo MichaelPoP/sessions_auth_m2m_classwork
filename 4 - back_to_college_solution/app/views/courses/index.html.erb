@@ -4,9 +4,7 @@
   </p>
     <% @courses.each do |course| %>
   <p>
-      <%= course.name%>
-    <br>
-      <%= link_to "Details", course_path(course.id) %>
+      <%= link_to course.name.capitalize, course_path(course.id) %>
   </p>
 <% end %>
 
