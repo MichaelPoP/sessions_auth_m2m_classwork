@@ -15,7 +15,7 @@
 - in your user model add `has_secure_password`
 - validate the presence of a username and make sure it is unique as well
 - add the flash code to your `application.html.erb` (from the todosession exercise)
-- generate a controller called access with signup, login, home and logout actions
+- generate a controller called access with signup, login and home
 - replace your routes with the following:
 
 ```
