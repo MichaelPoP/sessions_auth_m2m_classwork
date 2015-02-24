@@ -23,10 +23,7 @@ class AccessController < ApplicationController
   def attempt_login
 
     if params[:username].present? && params[:password].present?
-      found_user = User.where(username: params[:username]).first
-      if found_user
-        authorized_user = found_user.authenticate(params[:password])
-      end
+      User.confirm params[:username]
     end
 
     if !found_user
@@ -39,8 +36,7 @@ class AccessController < ApplicationController
 
     else
       session[:user_id] = authorized_user.id
-      flash[:success] = "You are now logged in."
-      redirect_to home_path
+      redirect_to home_path, flash: {success: "You are now logged in."}
     end
 
   end

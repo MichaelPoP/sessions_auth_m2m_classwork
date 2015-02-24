@@ -11,6 +11,7 @@ class Student < ActiveRecord::Base
   def enroll ids
 
     enrollments.where("course_id NOT IN (?)", ids.map(&:to_i)).delete_all
+    # enrollments.delete_all(course_id: ids.map(&:to_i))
 
     ids.each do |id|
       enrollments.find_or_create_by(course_id: id)

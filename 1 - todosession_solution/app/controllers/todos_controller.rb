@@ -2,11 +2,12 @@ class TodosController < ApplicationController
 
   def index
    @todos = session[:todos] ||= []
+   # binding.pry
   end
 
   def create
     if params[:task] == ""
-      redirect_to todos_path, alert: "Not cool...."
+      redirect_to todos_path, alert: "Please enter a task...."
     else
       session[:todos].push(params[:task])
       redirect_to todos_path, flash: {success: "Created"}
