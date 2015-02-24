@@ -30,7 +30,7 @@ root 'access#login'
 
   get 'home', to: "access#home", as: 'home'
 
-  get 'logout', to: "access#logout"
+  delete 'logout', to: "access#logout", as: "logout"
 ``` 
 - jump into rails console and make sure that your password hashing is working and that your validations for a user are correct
 
