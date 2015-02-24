@@ -1,0 +1,12 @@
+<div class="text-center">
+  <h1>Enroll in a new course!</h1>
+
+  <%= simple_form_for @student, url: enrollment_path(@student), method: "POST" do |f|%>
+
+  <%= f.association :courses, as: :check_boxes  %>
+
+  <%= f.button :submit, class: "btn btn-success"%>
+
+  <% end %>
+
+</div>
