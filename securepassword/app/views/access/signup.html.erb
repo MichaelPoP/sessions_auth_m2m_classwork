@@ -1,0 +1,19 @@
+
+<div class="login container-fluid">
+<center>
+<h1 class="title">Join the NSA</h1>
+</center>
+
+<%= simple_form_for(@user, url: signup_path) do |f|%>
+  <p>
+    <%= f.input(:username, autofocus: true) %>
+  </p>
+  <p>
+    <%= f.input(:password, required: true) %>
+  </p>
+  <br>
+  <p>
+    <%= f.button(:submit, "Signup", :class=>"btn btn-primary btn-large") %>
+  </p>
+    <%= link_to "Return to login", login_path, :class=>"btn btn-danger btn-large"%>
+<% end %>

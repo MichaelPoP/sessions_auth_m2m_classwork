@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Securepassword</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+ 
+
+
+<% flash.each do |key, value| %>
+  <% if key == "notice" %>
+    <%= content_tag :div, value, class: "text-center alert alert-warning" %>
+  <% elsif key == "alert" %>
+    <%= content_tag :div, value, class: "text-center alert alert-danger" %>
+  <% else %>
+    <%= content_tag :div, value, class: "text-center alert alert-success" %>
+  <% end %>
+<% end %>
+<style>
+.login {
+  background: black;
+  height: 600px;
+  
+}
+.title {
+   text-shadow: 1px 1px 1px white;
+
+}
+.box {
+  border-radius: 2px;
+  border: 8px inset white;
+  margin: 30px;
+  box-shadow: 4px 4px 3px black, -4px -4px 3px black, 4px -4px 3px black, -4px 4px 3px black;
+}
+.back {
+  background: #444643
+}
+.margin {
+  margin: 15px;
+}
+.wrong {
+  border: 2px outset red;
+}
+</style>
+
+</head>
+<body class="back">
+<center>
+<img src="/nsa_header.jpg" alt="nsa header">
+
+<div class="box">
+<%= yield %>
+</div>
+</center>
+</body>
+</html>
